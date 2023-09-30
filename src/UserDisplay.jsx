@@ -4,17 +4,21 @@ import { UserContext } from "./context/UserContext"
 
 export default function UserDisplay(){
 
-    let globalUserData= useContext(UserContext);
+	// let globalUserData = useContext(UserContext);
 
-    return(
-        <div>
-            <h1>User JWT: {globalUserData.userData.jwt}</h1>
-            <input type="text" 
-            name="" 
-            id="" 
-            value={globalUserData.userData.jwt} 
-            onChange={(event) => globalUserData.setUserData({jwt:event.target.value})}  
-            />
-        </div>
-    )
+	let {userData, setUserData} = useContext(UserContext);
+
+	return (
+		<div>
+			<h1>User JWT: {userData.jwt}</h1>
+			<input 
+			type="text" 
+			name="" 
+			id="" 
+			value={userData.jwt} 
+			onChange={(event) => setUserData({jwt: event.target.value})}   
+			/>
+			
+		</div>
+	)
 }
